@@ -122,3 +122,44 @@ select 10 + nvl(null, 0) from dual;
 select salary*12 + nvl(commission_pct, 0)*salary from employees;
 -- nvl2로 변환
 select salary*12 + nvl2(commission_pct, commission_pct*salary, 0) from employees;
+
+
+/*ch6.6*/
+-- DOCODE 함수
+select employee_id, first_name, job_id, salary,
+       decode(job_id, 
+              'AD_VP', salary*1.1,
+              'FI_MGR', salary*1.3,
+              salary*1.2) as upsal
+from employees
+where job_id in ('AD_VP', 'FI_MGR', 'PU_MAN');
+-- 참고. 반올림(round)하여 소수점 없애기
+select employee_id, first_name, job_id, salary,
+       round(decode(job_id, 
+              'AD_VP', salary*1.1,
+              'FI_MGR', salary*1.3,
+              salary*1.2)) as upsal
+from employees
+where job_id in ('AD_VP', 'FI_MGR', 'PU_MAN');
+
+-- CASE 함수
+-- docode  함수와 같은 방식의 case 함수 (원본값 있을 경우)
+select employee_id, first_name, job_id, salary,
+        case job_id
+             when 'AD_VP' then salary*1.1
+             when 'FI_MGR' then salary*1.3
+             else salary*1.2
+        end as upsal
+from employees
+where job_id in ('AD_VP', 'FI_MGR', 'PU_MAN');
+
+-- 원본값이 없을 때의 case 함수
+select employee_id, first_name, commission_pct,
+    case
+        when commission_pct is null then '해당사항 없음'
+        when commission_pct > 0 then '수당: ' || commission_pct
+    end as comm_text
+from employees;
+
+
+
