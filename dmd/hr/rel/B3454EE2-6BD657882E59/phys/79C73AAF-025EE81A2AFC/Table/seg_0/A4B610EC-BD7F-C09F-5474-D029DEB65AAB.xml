@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="REGIONS" directorySegmentName="seg_0" id="A4B610EC-BD7F-C09F-5474-D029DEB65AAB">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>941A0BFB-A549-25FB-F093-EDE95C86402A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>BDFC10F6-8E23-1503-AD41-97C0CF616C42</segment>
+<tableSpace>3CAE07DE-FEFB-5C6C-7A19-73947BAB6206</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="REGION_NAME" id="1D5A9EFA-71A4-F68E-7347-99766D71BC84">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_ID" id="37F9F27D-2000-54B9-DF29-EF23D041E777">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="REG_ID_PK" id="3CCF7AE1-FE6B-FE32-2950-F2166B235BAD">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:38 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>941A0BFB-A549-25FB-F093-EDE95C86402A</schemaObject>
+<segment>8BB563AE-9E9E-A834-D174-C9611EA99949</segment>
+<tableSpace>3CAE07DE-FEFB-5C6C-7A19-73947BAB6206</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="REG_ID_PK" id="674A5EF4-846E-BA55-86E4-39D1001F7686">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:38 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<segment>8BB563AE-9E9E-A834-D174-C9611EA99949</segment>
+<tableSpace>3CAE07DE-FEFB-5C6C-7A19-73947BAB6206</tableSpace>
+<existingIndex>3CCF7AE1-FE6B-FE32-2950-F2166B235BAD</existingIndex>
+<indexSegment>8BB563AE-9E9E-A834-D174-C9611EA99949</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

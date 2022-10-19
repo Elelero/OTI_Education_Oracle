@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="DEPARTMENTS" directorySegmentName="seg_0" id="7815F672-6B5F-8BD0-E48C-2500EF27056A">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>941A0BFB-A549-25FB-F093-EDE95C86402A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>BDFC10F6-8E23-1503-AD41-97C0CF616C42</segment>
+<tableSpace>3CAE07DE-FEFB-5C6C-7A19-73947BAB6206</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MANAGER_ID" id="8937882F-3162-3C39-005E-1E087C2D6182">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTMENT_NAME" id="97BB7713-E236-E538-9B23-090BF7644BE2">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_ID" id="CD95F5E0-C4CD-F2A4-E71E-BBCA0CB0B248">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTMENT_ID" id="FD1E1298-D0D7-9A95-CBA6-9E6A9E12F087">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:36 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DEPT_ID_PK" id="A6AEE165-91F4-F83D-EB5C-9EA30FDE1CC2">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:37 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>941A0BFB-A549-25FB-F093-EDE95C86402A</schemaObject>
+<segment>8BB563AE-9E9E-A834-D174-C9611EA99949</segment>
+<tableSpace>3CAE07DE-FEFB-5C6C-7A19-73947BAB6206</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DEPT_LOCATION_IX" id="F998FDC4-5025-70CE-E994-3634B3A4CBA9">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:37 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>941A0BFB-A549-25FB-F093-EDE95C86402A</schemaObject>
+<segment>8BB563AE-9E9E-A834-D174-C9611EA99949</segment>
+<tableSpace>3CAE07DE-FEFB-5C6C-7A19-73947BAB6206</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DEPT_MGR_FK" id="416462DB-7A2C-7000-15C6-359484AF69B1">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:38 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DEPT_LOC_FK" id="715D16BB-9A55-1E16-C814-37D665CF0506">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:38 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DEPT_ID_PK" id="ED1C2965-E87C-98E3-0415-6AD9707DC04B">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:38 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<segment>8BB563AE-9E9E-A834-D174-C9611EA99949</segment>
+<tableSpace>3CAE07DE-FEFB-5C6C-7A19-73947BAB6206</tableSpace>
+<existingIndex>A6AEE165-91F4-F83D-EB5C-9EA30FDE1CC2</existingIndex>
+<indexSegment>8BB563AE-9E9E-A834-D174-C9611EA99949</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>
