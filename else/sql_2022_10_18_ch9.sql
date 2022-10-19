@@ -15,13 +15,13 @@ where salary > (
     where first_name = 'John'
 --    order by salary --(x)
 );
--- in 연산자의 경우 여러개 와도 상관없음
+-- in 연산자
 select employee_id, salary, department_id
 from employees
 where department_id in (
-    select department_id
+    (select department_id
     from departments
-    where department_id < 30
+    where department_id < 30)
 );
 
 
@@ -159,4 +159,140 @@ where not exists(
 /* 과제2 */
 -- 근무도시가 시애틀인 사원의 이메일과 전화번호를 가져오시오
 -- 방법1 : Join 이용
+select email, phone_number
+from employees e, departments d, locations l
+where city = 'Seattle' and
+    e.department_id = d.department_id and
+    d.location_id = l.location_id;
+
 -- 방법2 : SubQuery 이용
+select email, phone_number
+from employees
+where department_id in (
+    select department_id
+    from departments
+    where location_id = (
+        select location_id
+        from locations
+        where city = 'Seattle'
+    )
+);    
+
+
+/* ch9.4 비교할 열이 여러 개인 다중열 서브쿼리 */
+select employee_id, salary, department_id
+from employees
+where (department_id, salary) in (
+    select department_id, max(salary)
+    from employees
+    group by department_id
+);    
+
+
+/* ch9.5 FROM절에 사용하는 서브쿼리와 WITH절 */
+select email, department_name, city
+from (
+        select email, department_id
+        from employees
+        where department_id in (10, 20)
+    ) e, 
+    (
+        select department_id, department_name, location_id
+        from departments
+    ) d,
+    (
+        select location_id, city
+        from locations
+    ) l    
+where e.department_id = d.department_id and
+      d.location_id = l.location_id;  
+
+-- with절 사용
+with
+e as (select email, department_id from employees where department_id in (10, 20)),
+d as (select department_id, department_name, location_id from departments),
+l as (select location_id, city from locations)
+select email, department_name, city
+from e, d, l
+where e.department_id = d.department_id and
+      d.location_id = l.location_id;
+
+-- 상호 연관 서브쿼리
+select employee_id, department_id, salary
+from employees e1
+where salary > (
+        select min(salary) from employees e2
+        where e2.department_id = e1.department_id
+)        
+order by department_id, salary;
+
+
+/* ch9.6 SELECT절에 사용하는 서브쿼리 */
+select employee_id, first_name, job_id,
+       salary, grade_id, department_id
+from employees e, grade g
+where salary between low_salary and hi_salary
+      and department_id = 30;
+----
+select employee_id, first_name, job_id, salary, department_id, grade_id
+from 
+     (
+        select employee_id, first_name, job_id, salary, department_id
+        from employees
+        where department_id = 30
+    ) e,
+    grade g
+where salary between low_salary and hi_salary;
+---- 스칼라 서브쿼리
+select employee_id, first_name, job_id, salary, department_id, 
+       (
+            select grade_id 
+            from grade 
+            where e.salary between low_salary and hi_salary
+            ) as grade_id
+from  employees e
+where department_id = 30;
+
+
+--=====================================================
+-- 번외 --
+select employee_id, first_name, job_id
+from employees
+where job_id = 'ST_CLERK';
+-- 위의 쿼리에 department_name도 출력할 수 있도록 해보기!
+
+-- 방법1 : Join
+select employee_id, first_name, job_id, department_name
+from employees e, departments d
+where job_id = 'ST_CLERK' and
+    e.department_id = d.department_id;
+
+-- 방법2 : from절에서 서브쿼리
+select employee_id, first_name, job_id, department_name
+from ( select employee_id, first_name, job_id, department_id
+       from employees
+      ) e,
+      ( select department_id, department_name
+        from departments
+      ) d
+where job_id = 'ST_CLERK' and
+    e.department_id = d.department_id;
+-- 교수님 풀이
+select employee_id, first_name, job_id, d.department_id, department_name
+from
+    ( select employee_id, first_name, job_id, department_id
+      from employees
+      where job_id = 'ST_CLERK') e,
+    departments d
+where e.department_id = d.department_id;    
+
+-- 방법3 : select절에서 서브쿼리
+select employee_id, first_name, job_id,
+       ( select department_name
+         from departments d
+         where e.department_id = d.department_id
+        ) as department_name       
+from employees e
+where job_id = 'ST_CLERK';
+
+
